@@ -1,12 +1,13 @@
-const http = require('http');
+var express = require('express')
+var bodyParser = require('body-parser')
+var path = require('path')
 
-const host = "localhost";
+var app = express();
 
-const port = 3000;
-
-const server = http.createServer((req, res) => {
-    res.setHeader("Content-Type", "text/plain");
-    res.end("Hello world");
+app.get("/", function(req, res) {
+    res.send("Hello world");
 });
 
-server.listen(port, host, () => console.log("Server started"));
+app.listen(3000, function() {
+    console.log("Server started at port 3000...");
+});
